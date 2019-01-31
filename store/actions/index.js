@@ -5,7 +5,7 @@ import {
   VARIABLE_NAMES_ERROR
 } from "../types"; // Import variable names to avoid spelling errors
 
-// Action creator function
+// Action creator function that uses thunk
 export const getFriends = _ => dispatch => {
   dispatch({ type: VARIABLE_NAMES_STARTED }); // Initial dispatch
   axios

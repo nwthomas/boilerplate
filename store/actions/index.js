@@ -6,7 +6,7 @@ import {
 } from "../types"; // Import variable names to avoid spelling errors
 
 // Action creator function that uses thunk
-export const getFriends = _ => dispatch => {
+export const actionCreator = _ => dispatch => {
   dispatch({ type: VARIABLE_NAMES_STARTED }); // Initial dispatch
   axios
     .get("insert url")

@@ -9,7 +9,8 @@ const initialState = {
   initialState1: "",
   initialState2: false,
   initialState3: [],
-  initialState4: {}
+  initialState4: {},
+  error: null
 };
 
 export const reducer = (state = initialState, action) => {
@@ -17,17 +18,19 @@ export const reducer = (state = initialState, action) => {
     case VARIABLE_NAMES_STARTED:
       return {
         ...state,
-        initialState1: action.payload
+        initialState2: true
       };
     case VARIABLE_NAMES_SUCCESS:
       return {
         ...state,
-        initialState2: true
+        initialState2: false,
+        initialState1: { ...state.initialState1, initialState3: action.payload } // Spread in of initial state + updated state
       };
     case VARIABLE_NAMES_ERROR:
       return {
         ...state,
-        initialState3: [...state.initialState3, action.payload]
+        error: "Random string content",
+        initiaState2: false
       };
     default:
       return state;

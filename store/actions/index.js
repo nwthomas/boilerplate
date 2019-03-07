@@ -6,7 +6,7 @@ import {
 } from "../types"; // Import variable names to avoid spelling errors
 
 // Action creator function that uses thunk
-export const actionCreator = _ => dispatch => {
+export const axiosActionCreator = _ => dispatch => {
   dispatch({ type: VARIABLE_NAMES_STARTED }); // Initial dispatch
   axios
     .get("insert url")
@@ -16,4 +16,14 @@ export const actionCreator = _ => dispatch => {
     .catch(err => {
       dispatch({ type: VARIABLE_NAMES_ERROR, payload: err.data }); // Error dispatch
     });
+};
+
+// Action creator for basic operations
+export const basicActionCreator = () => {
+  return {
+    type: VARIABLE_NAMES_SUCCESS,
+    payload: {
+      whatever: "whatever you want"
+    }
+  };
 };

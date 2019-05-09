@@ -14,6 +14,7 @@ export const initialState = {
 export const exampleReducer = (state = initialState, action) => {
   switch (action.type) {
     case VARIABLE_TYPE_START:
+      console.log(action.payload);
       return {
         ...state,
         variable1: [],

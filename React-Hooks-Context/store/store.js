@@ -1,12 +1,11 @@
 import React, { createContext, useContext, useReducer, useMemo } from "react";
-import { initialState, rootReducer } from "./reducers";
 
 export const Store = createContext(); // Create initial context
 
-export const StateProvider = ({ reducer, initialState, children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+export const StateProvider = ({ rootReducer, initialState, children }) => {
+  const [state, dispatch] = useReducer(rootReducer, initialState); // Hook takes in reducer and state and returns state and dispatch
 
-  // Sets up useMemo() for memoization
+  // Sets up useMemo() for memoization efficiency
   const value = useMemo(() => {
     return {
       state,

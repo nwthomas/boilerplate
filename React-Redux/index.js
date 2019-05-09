@@ -16,9 +16,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
-/*
-
-Can be updated with React Router using the BrowserRouter as Router/AppWithRouter functionality
-
-*/

@@ -12,7 +12,7 @@ This repository contains boilerplate for front-end, back-end, state management, 
 | `front-end` | In Progress | State Management | React Hooks, Context, React Router | [React-Hooks-Context](./React-Hooks-Context) |
 | `front-end` | Incomplete  | Mobile Framework | React Native, React Native Router  |                                              |
 | `front-end` | In Progress | Assorted         | React Custom Hooks                 | [React-Custom-Hooks](./React-Custom-Hooks)   |
-| `back-end`  | In Progress | Server Framework | Express, RESTful APIs, Postgres    | [Express-REST-Postgres](./Express-Postgres)  |
+| `back-end`  | Complete    | Server Framework | Express, RESTful APIs, Postgres    | [Express-REST-Postgres](./Express-Postgres)  |
 | `back-end`  | Incomplete  | Server Framework | Apollo, GraphQL, MongoDB           |                                              |
 
 ## NOTES

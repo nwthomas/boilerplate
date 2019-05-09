@@ -11,7 +11,7 @@ export const initialState = {
   variable4: "It's working, it's working!!!"
 };
 
-export const twoReducer = (state, action) => {
+export const exampleReducer = (state = initialState, action) => {
   switch (action.type) {
     case VARIABLE_TYPE_START:
       return {

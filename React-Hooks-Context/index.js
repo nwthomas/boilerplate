@@ -1,14 +1,12 @@
-import React from "./node_modules/react";
-import ReactDOM from "./node_modules/react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 import App from "./App";
 import { Store as Provider } from "./store/store";
-import {
-  BrowserRouter as Router,
-  withRouter
-} from "./node_modules/react-router-dom"; // Renamed import of BrowserRouter and withRouter for history/match/location in App.js
+import { BrowserRouter as Router, withRouter } from "react-router-dom"; // Renamed import of BrowserRouter and withRouter for history/match/location in App.js
 
-const AppWithRouter = withRouter(App); // Clean creation of AppWithRouter component
+const AppWithRouter = withRouter(App); // Clean creation of AppWithRouter component for match/history/locaion in App.js
 
+// Provider wraps app with access to state context
 ReactDOM.render(
   <Provider>
     <Router>
@@ -17,13 +15,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
-/*
-
-We can then use and import state into our components using these lines of code:
-
-import { useStateValue } from "./state";
-
-Const [{ theme }, dispatch] = useStateValue();
-
-*/

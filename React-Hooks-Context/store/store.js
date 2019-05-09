@@ -1,16 +1,24 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer
-} from "./node_modules/react";
-import { initialState, reducer } from "./reducers/index";
+import React, { createContext, useContext, useReducer, useMemo } from "react";
 
-export const Store = createContext(); // Create initial contest
+export const Store = createContext(); // Create initial context
 
 export const StateProvider = ({ reducer, initialState, children }) => {
-  <Store.Provider value={useReducer(reducer, initialState)}>
-    {children}
-  </Store.Provider>;
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // Sets up useMemo() for memoization
+  const value = useMemo(() => {
+    return {
+      state,
+      dispatch
+    };
+  }, [state]);
+
+  // Returns component StoreContext with Provider for state context in application Index.js
+  return (
+    <Store.Provider value={[value.state, value.dispatch]}>
+      {children}
+    </Store.Provider>
+  );
 };
 
-export const useStateValue = () => useContext(StateContext); // useContext gives us whatever was passed in as the value of the provider up above in StateContext.Provider
+export const useStateValue = () => useContext(Store); // useContext gives us whatever was passed in as the value of the provider up above in StateContext.Provider

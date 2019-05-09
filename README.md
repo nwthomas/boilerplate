@@ -17,7 +17,7 @@ This repository contains boilerplate for front-end, back-end, state management, 
 
 ## NOTES
 
-As this is my personal collection of boilerplate, it is (by it's very nature) opinionated. Each of us codes in a slightly different way, and everyone has their own preferred method; while there are many ways to write clean and elegant code, these boilerplate files are the way I currently liked to structure my code at the time of authorship. That does not mean that you're wrong in your approach; in fact, it's highly likely that I've since tweaked my own and just haven't updated this repo yet. I hope that you can take what you see here, adapt it to your own style, and then make something completely and incredibly new out of it.
+As this is my personal collection of boilerplate, it is (by it's very nature) opinionated. Each of us codes in a slightly different way, and everyone has their own preferred method; while there are many ways to write clean and elegant code, these boilerplate files are the way I currently preferred to structure my code at the time of authorship. That does not mean you're wrong in your approach; in fact, it's highly likely that I've since tweaked my own methods and just haven't updated this repo yet. I hope that you can take what you see here, adapt it to your own style, and then make something completely and incredibly new out of it.
 
 ## PROJECT MANAGEMENT
 
@@ -29,5 +29,9 @@ As this is my personal collection of boilerplate, it is (by it's very nature) op
 
 ## ACKNOWLEDGEMENTS
 
-- [Frank Faustino](https://github.com/frankfaustino) - Thanks for paving the way and inspiring both me and future generations of Lambda School students to reach higher than they would have otherwise. I saw your boilerplate library and thought it was awesome, so I decided to make my own.
-- [useHooks.com](https://usehooks.com/) - A great source of custom React Hooks recipes
+- [Josh Knell](https://github.com/BigKnell) - The Big Boss. The Big Cheese. Thanks for teaching me the basics and for keeping it real. Banjo on.
+- [Dustin Myers](https://github.com/dustinmyers) - The Legend himself. Dustin is the reason I can even write a single line of code in React. Thanks for your leadership, Dustin.
+- [Luis Hernandez](https://github.com/luishrd) - Luis, thanks for teaching me about the Bros and Homies. Your leadership in Lambda School back-end week lets me build servers and move mountains.
+- [Dan Levy](https://danlevy.net/) - Thanks for all of your advice, Dan. You consistently come through with gold when I have questions. I appreciate you.
+- [Frank Faustino](https://github.com/frankfaustino) - Thanks for paving the way in Lambda School and inspiring both me and future generations of students to reach higher than we would have otherwise. I saw your boilerplate library and thought it was awesome, so here we are.
+- [useHooks.com](https://usehooks.com/) - A great source of custom React Hooks recipes from which I've borrowed several.

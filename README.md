@@ -30,4 +30,4 @@ As this is my personal collection of boilerplate, it is (by it's very nature) op
 ## ACKNOWLEDGEMENTS
 
 - [Frank Faustino](https://github.com/frankfaustino) - Thanks for paving the way and inspiring both me and future generations of Lambda School students to reach higher than they would have otherwise. I saw your boilerplate library and thought it was awesome, so I decided to make my own.
-- [useHooks.com](https://www.google.com/search?q=react+hooks+recipes&oq=react+hooks+recipe&aqs=chrome.0.0j69i57j69i60l2.3086j0j7&sourceid=chrome&ie=UTF-8) - A great source of custom React Hooks recipes
+- [useHooks.com](https://usehooks.com/) - A great source of custom React Hooks recipes

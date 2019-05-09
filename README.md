@@ -17,7 +17,7 @@ This repository contains boilerplate for front-end, back-end, state management, 
 
 ## NOTES
 
-As this is my personal collection of boilerplate, it is (by it's very nature) opinionated. Each of us codes in a slightly different way, and everyone has their own preferred method of writing it; while there are many ways to write clean and elegant code, these boilerplate files are the way I currently like to structure mine. That does not mean that you're wrong in your approach. On the contrary, I hope that you can take what you see here, adapt it to your own style, and then make something completely and incredibly new out of it.
+As this is my personal collection of boilerplate, it is (by it's very nature) opinionated. Each of us codes in a slightly different way, and everyone has their own preferred method; while there are many ways to write clean and elegant code, these boilerplate files are the way I currently liked to structure my code at the time of authorship. That does not mean that you're wrong in your approach; in fact, it's highly likely that I've since tweaked my own and just haven't updated this repo yet. I hope that you can take what you see here, adapt it to your own style, and then make something completely and incredibly new out of it.
 
 ## AUTHOR
 

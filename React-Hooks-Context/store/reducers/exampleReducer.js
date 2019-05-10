@@ -2,7 +2,7 @@ import {
   VARIABLE_TYPE_START,
   VARIABLE_TYPE_SUCCESS,
   VARIABLE_TYPE_ERROR
-} from "../types";
+} from "../constants";
 
 export const initialState = {
   variable1: [],
@@ -12,13 +12,14 @@ export const initialState = {
 };
 
 export const exampleReducer = (state = initialState, action) => {
+  console.log(action.type);
   switch (action.type) {
     case VARIABLE_TYPE_START:
-      console.log(action.payload);
       return {
         ...state,
         variable1: [],
-        variable2: {}
+        variable2: {},
+        variable4: action.payload
       };
     case VARIABLE_TYPE_SUCCESS:
       return {

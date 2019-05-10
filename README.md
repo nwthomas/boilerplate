@@ -6,14 +6,14 @@ This repository contains boilerplate for front-end, back-end, state management, 
 
 ## TABLE OF CONTENTS
 
-| Use Case    | Status      | Type             | Packages                           | Link                                         |
-| ----------- | ----------- | ---------------- | ---------------------------------- | -------------------------------------------- |
-| `front-end` | Complete    | State Management | React, Redux, React Router         | [React-Redux](./React-Redux)                 |
-| `front-end` | In Progress | State Management | React Hooks, Context, React Router | [React-Hooks-Context](./React-Hooks-Context) |
-| `front-end` | Incomplete  | Mobile Framework | React Native, React Native Router  |                                              |
-| `front-end` | In Progress | Assorted         | React Custom Hooks                 | [React-Custom-Hooks](./React-Custom-Hooks)   |
-| `back-end`  | Complete    | Server Framework | Express, RESTful APIs, Postgres    | [Express-REST-Postgres](./Express-Postgres)  |
-| `back-end`  | Incomplete  | Server Framework | Apollo, GraphQL, MongoDB           |                                              |
+| Use Case    | Type             | Status      | Packages                           | Link                                         |
+| ----------- | ---------------- | ----------- | ---------------------------------- | -------------------------------------------- |
+| `front-end` | State Management | Complete    | React, Redux, React Router         | [React-Redux](./React-Redux)                 |
+| `front-end` | State Management | Complete    | React Hooks, Context, React Router | [React-Hooks-Context](./React-Hooks-Context) |
+| `front-end` | Mobile Framework | Incomplete  | React Native, React Native Router  |                                              |
+| `front-end` | Assorted         | In Progress | React Custom Hooks                 | [React-Custom-Hooks](./React-Custom-Hooks)   |
+| `back-end`  | Server Framework | Complete    | Express, RESTful APIs, Postgres    | [Express-REST-Postgres](./Express-Postgres)  |
+| `back-end`  | Server Framework | Incomplete  | Apollo, GraphQL, MongoDB           |                                              |
 
 ## NOTES
 

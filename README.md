@@ -6,15 +6,16 @@ This repository contains boilerplate for front-end, back-end, state management, 
 
 ## TABLE OF CONTENTS
 
-| Use Case    | Type             | Status      | Packages                           | Link                                           |
-| ----------- | ---------------- | ----------- | ---------------------------------- | ---------------------------------------------- |
-| `front-end` | State Management | Complete    | React, Redux, React Router         | [React-Redux](./React-Redux)                   |
-| `front-end` | State Management | Complete    | React Hooks, Context, React Router | [React-Hooks-Context](./React-Hooks-Context)   |
-| `front-end` | Mobile Framework | Incomplete  | React Native, React Native Router  |                                                |
-| `front-end` | Assorted         | In Progress | React Custom Hooks                 | [React-Custom-Hooks](./React-Custom-Hooks)     |
-| `front-end` | Testing          | Complete    | Render/Renderers with Router       | [Custom-Testing-Utils](./Custom-Testing-Utils) |
-| `back-end`  | Server Framework | Complete    | Express, RESTful APIs, Postgres    | [Express-REST-Postgres](./Express-Postgres)    |
-| `back-end`  | Server Framework | Incomplete  | Apollo, GraphQL, MongoDB           |                                                |
+| Use Case    | Type             | Status      | Packages                           | Link                                    |
+| ----------- | ---------------- | ----------- | ---------------------------------- | --------------------------------------- |
+| `front-end` | State Management | Complete    | React, Redux, React Router         | [Click Here](./React-Redux)             |
+| `front-end` | State Management | Complete    | React Hooks, Context, React Router | [Click Here](./React-Hooks-Context)     |
+| `front-end` | Mobile Framework | Incomplete  | React Native, React Native Router  |                                         |
+| `front-end` | Assorted         | In Progress | React Custom Hooks                 | [Click Here](./React-Custom-Hooks)      |
+| `front-end` | Testing          | Complete    | Render/Renderers with Router       | [Click Here](./Custom-Testing-Utils)    |
+| `back-end`  | Server Framework | Complete    | Express, REST, Postgres            | [Click Here](./Express-REST-Postgres)   |
+| `back-end`  | Server Framework | In Progress | Express, GraphQL, MongoDB          | [Click Here](./Express-GraphQL-MongoDB) |
+| `back-end`  | Server Framework | Incomplete  | Apollo, GraphQL, MongoDB           |                                         |
 
 ## NOTES
 

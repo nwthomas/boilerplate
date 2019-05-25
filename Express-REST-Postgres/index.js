@@ -1,8 +1,8 @@
 // Import DOTENV for dynamic port assignment
-require("dotenv").config();
+require('dotenv').config();
 
 // Import server from server.js
-const server = require("./api/server.js");
+const server = require('./api/server.js');
 
 // Assign port for server use
 const port = process.env.PORT || 8000;

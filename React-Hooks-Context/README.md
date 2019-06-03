@@ -1,6 +1,8 @@
-# REACT HOOKS & CONTEXT API BOILERPLATE
+# REACT HOOKS & CONTEXT API BOILERPLATE (CONFLUX)
 
 This directory contains boilerplate for React hooks and the Context API to make your life easier in starting a new React application with clean, elegant state management.
+
+The patterns contained in this repository are the predecessor to those from the [Conflux](https://github.com/dustinmyers/react-conflux) state management library that [Dustin Myers](https://github.com/dustinmyers) and I built. It's currently hosted on [NPM](https://www.npmjs.com/package/react-conflux) and available for download.
 
 ## GETTING STARTED
 

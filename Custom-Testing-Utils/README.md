@@ -1,4 +1,4 @@
-# BESPOKE RENDER AND RENDERER WITH ROUTER TESTING UTILITIES
+# CUSTOM RENDER AND RENDERER WITH ROUTER TESTING UTILITIES
 
 When building out tests for my portfolio, I ran into the issue of React Router throwing errors on every component inside of routes. What followed was me building out custom utility functions allowing me to use `react-testing-library` and `react-test-renderer` with `react-router` dependencies.
 

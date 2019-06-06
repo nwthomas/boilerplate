@@ -43,7 +43,7 @@ public class UserController
 		User rtnUser = ServerApplication.ourUserList.findUser(u -> u.getEmail() == email);
 		if (rtnUser == null)
 		{
-			throw new ResourceNotFoundException("User with id " + id + " is not found.");
+			throw new ResourceNotFoundException("User with email " + email + " is not found.");
 		}
 		else
 		{
@@ -53,4 +53,17 @@ public class UserController
 
 
 	// /users/{phone}
+	@GetMapping(value = "/{phone}", produces = {"application/json"})
+	public ResponseEntity<?> getUserByPhone(@PathVariable String phone)
+	{
+		User rtnUser = ServerApplication.ourUserList.findUser(u -> u.getPhone() == phone);
+		if (rtnUser == null)
+		{
+			throw new ResourceNotFoundException("User with phone " + phone + " is not found.");
+		}
+		else
+		{
+			return new ResponseEntity<>(rtnUser, HttpStatus.OK);
+		}
+	}
 }

@@ -35,6 +35,7 @@ As this is my personal collection of boilerplate, it is (by it's very nature) op
 - [Josh Knell](https://github.com/BigKnell) - The Big Boss. The Big Cheese. Thanks for teaching me the basics and for keeping it real. Banjo on.
 - [Dustin Myers](https://github.com/dustinmyers) - The Legend himself. Dustin is the reason I can even write a single line of code in React. Thanks for your leadership, Dustin.
 - [Luis Hernandez](https://github.com/luishrd) - Luis, thanks for teaching me about the Bros and Homies. Your leadership in Lambda School back-end week lets me build servers and move mountains.
+- [John Mitchell](https://github.com/jrmmba8314) - You opened up the statically-typed world of Java to me. Thank you for being willing to jump on Zoom calls to explain everything.
 - [Dan Levy](https://danlevy.net/) - Thanks for all of your advice, Dan. You consistently come through with gold when I have questions. I appreciate you.
 - [Frank Faustino](https://github.com/frankfaustino) - Thanks for paving the way in Lambda School and inspiring both me and future generations of students to reach higher than we would have otherwise. I saw your boilerplate library and thought it was awesome, so here we are.
 - [useHooks.com](https://usehooks.com/) - A great source of custom React Hooks recipes from which I've borrowed several.

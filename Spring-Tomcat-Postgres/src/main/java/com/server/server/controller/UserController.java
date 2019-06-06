@@ -22,7 +22,7 @@ public class UserController
 	}
 
 	// /users/{id}
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/{id}", produces = {"application/json"})
 	public ResponseEntity<?> getSingleUser(@PathVariable int id)
 	{
 		User rtnUser = ServerApplication.ourUserList.findUser(u -> u.getId() == id);
@@ -36,9 +36,21 @@ public class UserController
 		}
 	}
 
-	// /users/{letter}
-
 	// /users/{email}
+	@GetMapping(value = "/{email", produces = {"application/json"})
+	public ResponseEntity<?> getUserByEmail(@PathVariable String email)
+	{
+		User rtnUser = ServerApplication.ourUserList.findUser(u -> u.getEmail() == email);
+		if (rtnUser == null)
+		{
+			throw new ResourceNotFoundException("User with id " + id + " is not found.");
+		}
+		else
+		{
+			return new ResponseEntity<>(rtnUser, HttpStatus.OK);
+		}
+	}
+
 
 	// /users/{phone}
 }

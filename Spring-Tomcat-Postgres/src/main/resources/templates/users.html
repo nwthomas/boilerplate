@@ -1,0 +1,23 @@
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display User Details</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.fname}">First Name</td>
+        <td th:text="${user.lname}">Last Name</td>
+        <td th:text="${user.email}">Email</td>
+        <td th:text="${user.phone}">Phone</td>
+    </tr>
+</table>
+<strong><a href="/">Click here to go back</a></strong>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.server.server;
+package com.javaserver.server;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

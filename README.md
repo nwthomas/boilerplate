@@ -12,7 +12,7 @@ This repository contains boilerplate for front-end, back-end, state management, 
 | `front-end` | State Management | Complete    | React Hooks, Context, React Router | [Click Here](./React-Hooks-Context)     |
 | `front-end` | Mobile Framework | Incomplete  | React Native, React Native Router  |                                         |
 | `front-end` | Assorted         | In Progress | React Custom Hooks                 | [Click Here](./React-Custom-Hooks)      |
-| `front-end` | Testing          | Complete    | Render/Renderers with Router       | [Click Here](./Custom-Testing-Utils)    |
+| `both`      | Testing          | Complete    | React Testing Library/UUID         | [Click Here](./Custom-Testing-Utils)    |
 | `back-end`  | Server Framework | Complete    | Express, REST, Postgres            | [Click Here](./Express-REST-Postgres)   |
 | `back-end`  | Server Framework | In Progress | Express, GraphQL, MongoDB          | [Click Here](./Express-GraphQL-MongoDB) |
 | `back-end`  | Server Framework | Incomplete  | Apollo, GraphQL, MongoDB           |                                         |

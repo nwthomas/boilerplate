@@ -1,57 +1,115 @@
 package com.server.server.model;
 
+import javax.persistence.*;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Entity
+@Table(name = "user")
 public class User
 {
-	private static final AtomicLong counter = new AtomicLong();
-	private long id;
-	private String fname;
-	private String lname;
-	private String email;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long userid;
+
+	private String username;
+	private String password;
+	private String firstname;
+	private String middlename;
+	private String lastname;
 	private String phone;
+	private String email;
+	private String address1;
+	private String address2;
+	private String city;
+	private String zip;
 
-	public User(String fname, String lname, String email, String phone)
+	public User()
 	{
-		this.id = counter.incrementAndGet();
-		this.fname = fname;
-		this.lname = lname;
-		this.email = email;
+	}
+
+	public User(String username, String password, String firstname, String middlename, String lastname, String phone, String email, String address1, String address2, String city, String zip)
+	{
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.middlename = middlename;
+		this.lastname = lastname;
 		this.phone = phone;
+		this.email = email;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.city = city;
+		this.zip = zip;
 	}
 
-	public User(User toClone)
+	public long getUserid()
 	{
-		this.id = toClone.getId();
-		this.fname = toClone.getFname();
-		this.lname = toClone.getLname();
-		this.email = toClone.getEmail();
-		this.phone = toClone.getPhone();
+		return userid;
 	}
 
-	public long getId()
+	public void setUserid(long userid)
 	{
-		return id;
+		this.userid = userid;
 	}
 
-	public String getFname()
+	public String getUsername()
 	{
-		return fname;
+		return username;
 	}
 
-	public void setFname(String fname)
+	public void setUsername(String username)
 	{
-		this.fname = fname;
+		this.username = username;
 	}
 
-	public String getLname()
+	public String getPassword()
 	{
-		return lname;
+		return password;
 	}
 
-	public void setLname(String lname)
+	public void setPassword(String password)
 	{
-		this.lname = lname;
+		this.password = password;
+	}
+
+	public String getFirstname()
+	{
+		return firstname;
+	}
+
+	public void setFirstname(String firstname)
+	{
+		this.firstname = firstname;
+	}
+
+	public String getMiddlename()
+	{
+		return middlename;
+	}
+
+	public void setMiddlename(String middlename)
+	{
+		this.middlename = middlename;
+	}
+
+	public String getLastname()
+	{
+		return lastname;
+	}
+
+	public void setLastname(String lastname)
+	{
+		this.lastname = lastname;
+	}
+
+	public String getPhone()
+	{
+		return phone;
+	}
+
+	public void setPhone(String phone)
+	{
+		this.phone = phone;
 	}
 
 	public String getEmail()
@@ -64,13 +122,43 @@ public class User
 		this.email = email;
 	}
 
-	public String getPhone()
+	public String getAddress1()
 	{
-		return phone;
+		return address1;
 	}
 
-	public void setPhone(String phone)
+	public void setAddress1(String address1)
 	{
-		this.phone = phone;
+		this.address1 = address1;
+	}
+
+	public String getAddress2()
+	{
+		return address2;
+	}
+
+	public void setAddress2(String address2)
+	{
+		this.address2 = address2;
+	}
+
+	public String getCity()
+	{
+		return city;
+	}
+
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+
+	public String getZip()
+	{
+		return zip;
+	}
+
+	public void setZip(String zip)
+	{
+		this.zip = zip;
 	}
 }

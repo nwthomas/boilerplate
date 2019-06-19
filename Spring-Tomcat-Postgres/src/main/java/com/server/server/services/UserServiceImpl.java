@@ -5,6 +5,7 @@ import com.server.server.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 
 @Service(value = "userService")
@@ -21,5 +22,16 @@ public class UserServiceImpl implements UserService
 		return list;
 	}
 
-
+	@Override
+	public void delete(long id)
+	{
+		if (userRepos.findById(id).isPresent())
+		{
+			userRepos.deleteById(id);
+		}
+		else
+		{
+			throw new EntityNotFoundException(Long.toString(id));
+		}
+	}
 }

@@ -11,7 +11,7 @@ const server = express(); // Create new server
 applyMiddleware(server);
 
 // Connect to MongoDB Atlas database
-mongoose.connect(process.env.DB_URI);
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
 mongoose.connection.once("open", () => {
   console.log(`
          Connected to Database

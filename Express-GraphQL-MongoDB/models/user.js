@@ -15,7 +15,12 @@ const userSchema = new Schema({
   middleName: String,
   lastName: String,
   email: String,
-  phone: String
+  phone: String,
+  street1: String,
+  street2: String,
+  city: String,
+  state: String,
+  zip: String
 });
 
 module.exports = mongoose.model("User", userSchema);

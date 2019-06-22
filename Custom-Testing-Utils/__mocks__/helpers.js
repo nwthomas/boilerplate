@@ -12,7 +12,18 @@ const uuid = require("uuid");
  *
  * const expected = { id: "Custom testing phrase here.", variableExpected }
  *
- * UUID ---> https://www.npmjs.com/package/uuid
+ * Your jest test will take the form of the following:
+ *
+ * it("should return the newsly saved variable", () => {
+ *    const varaible = "Nathan";
+ *    const expected = { id: "Custom testing phrase here.", variable };
+ *
+ *    const actual = saveVariable(expected);
+ *
+ *    expect(actual).toEqual(expected);
+ * })
+ *
+ * UUID package ---> https://www.npmjs.com/package/uuid
  */
 
 const saveVariable = variableExpected => {

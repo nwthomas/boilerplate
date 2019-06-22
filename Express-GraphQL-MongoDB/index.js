@@ -4,10 +4,11 @@ const schema = require("./schema/schema");
 require("dotenv").config(); // Config .env
 const mongoose = require("mongoose");
 const cors = require("cors");
+const applyMiddleware = require("./api/middleware.js");
 
 const server = express(); // Create new server
 
-server.use(cors());
+applyMiddleware(server);
 
 // Connect to MongoDB Atlas database
 mongoose.connect(process.env.DB_URI);
@@ -18,11 +19,14 @@ mongoose.connection.once("open", () => {
   `);
 });
 
+const root = { marty: () => "We have to go back!" };
+
 // Server use GraphQL with /graphql endpoint
 server.use(
   "/graphql",
   graphqlHTTP({
     schema,
+    rootValue: { marty: () => "We have to go back!" },
     graphiql: true // Allows users to access the GraphiQL tool in the browser
   })
 );

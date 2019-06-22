@@ -1,4 +1,4 @@
-# EXPRESS SERVER BOILERPLATE
+# EXPRESS REST POSTGRES
 
 This directory contains boilerplate for an Express and Postgres server built using RESTful API methodology.
 

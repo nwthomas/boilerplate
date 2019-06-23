@@ -16,4 +16,5 @@ This directory contains boilerplate for an Express and MongoDB server built usin
   - `cross-env`
   - `nodemon`
   - `graphql-playground-middleware-express`
+  - `jsonwebtoken`
 - Run `yarn start` or `npm start` to launch server

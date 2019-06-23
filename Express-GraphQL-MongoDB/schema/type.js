@@ -1,5 +1,6 @@
 const graphql = require("graphql");
 const User = require("../models/user.js");
+const Thing = require("../models/thing.js");
 
 const {
   GraphQLObjectType,
@@ -8,6 +9,20 @@ const {
   GraphQLList,
   GraphQLNonNull
 } = graphql;
+
+const ThingType = new GraphQLObjectType({
+  name: "Thing",
+  fields: () => ({
+    id: { type: GraphQLID },
+    name: { type: GraphQLNonNull(GraphQLString) },
+    user: {
+      type: UserType,
+      resolve(parent, args) {
+        return User.findById(parent.userid);
+      }
+    }
+  })
+});
 
 const UserType = new GraphQLObjectType({
   name: "User",
@@ -24,7 +39,13 @@ const UserType = new GraphQLObjectType({
     street2: { type: GraphQLString },
     city: { type: GraphQLString },
     state: { type: GraphQLString },
-    zip: { type: GraphQLString }
+    zip: { type: GraphQLString },
+    things: {
+      type: new GraphQLList(ThingType),
+      resolve(parent, args) {
+        return Thing.find({ userid: parent.id });
+      }
+    }
   })
 });
 
@@ -43,11 +64,25 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return User.find();
       }
+    },
+    thing: {
+      type: ThingType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Thing.findById(args.id);
+      }
+    },
+    things: {
+      type: new GraphQLList(ThingType),
+      resolve(parent, args) {
+        return Thing.find();
+      }
     }
   }
 });
 
 module.exports = {
   UserType,
+  ThingType,
   RootQuery
 };

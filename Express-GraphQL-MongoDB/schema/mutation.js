@@ -1,6 +1,7 @@
 const graphql = require("graphql");
 const User = require("../models/user.js");
-const { UserType } = require("./type.js");
+const Thing = require("../models/thing.js");
+const { UserType, ThingType } = require("./type.js");
 
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLNonNull } = graphql;
 
@@ -74,7 +75,33 @@ const Mutation = new GraphQLObjectType({
         if (args.zip) user.zip = args.zip;
         return user.save();
       }
+    },
+    addThing: {
+      type: ThingType,
+      args: {
+        name: { type: GraphQLNonNull(GraphQLString) },
+        userid: { type: GraphQLNonNull(GraphQLString) }
+      },
+      resolve(parent, args) {
+        let thing = new Thing({
+          name: args.name,
+          userid: args.userid
+        });
+        return thing.save();
+      }
     }
+    // updateThing: {
+    //   type: ThingType,
+    //   args: {
+    //     id: { type: GraphQLNonNull(GraphQLID) },
+    //     name: { type: GraphQLString }
+    //   },
+    //   async resolve(parent, args) {
+    //     let thing = await Thing.findById(args.id);
+    //     if (args.name) thing.name = args.name;
+    //     return thing.save();
+    //   }
+    // }
   }
 });
 

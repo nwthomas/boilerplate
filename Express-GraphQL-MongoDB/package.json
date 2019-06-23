@@ -21,6 +21,7 @@
     "express": "^4.17.0",
     "express-graphql": "^0.8.0",
     "graphql": "^14.3.0",
+    "graphql-playground-middleware-express": "^1.7.12",
     "helmet": "^3.18.0",
     "mongoose": "^5.5.10",
     "morgan": "^1.9.1"

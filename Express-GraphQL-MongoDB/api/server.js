@@ -5,12 +5,11 @@ const graphqlHTTP = require("express-graphql"); // Express connecting package an
 const schema = require("../schema/schema.js");
 const expressPlayground = require("graphql-playground-middleware-express")
   .default;
-const restricted = require("../auth/restricted.js");
-require("dotenv").config();
-
 const server = express(); // Create new server
+require("dotenv").config();
+const restricted = require("../auth/restricted.js");
 
-applyMiddleware(server); // Configure middleware
+applyMiddleware(server);
 
 server.get("/playground", expressPlayground({ endpoint: "/graphql" })); // Use GraphQL Playground
 
@@ -22,17 +21,10 @@ server.get("/", (req, res) => {
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true });
 mongoose.connection.once("open", () => {
   console.log(`
-         Connected to Database
-  -------------------------------------
+           Connected to MongoDB Database Cluster
+  ------------------------------------------------------------
   `);
 });
-
-const logger = (req, res, next) => {
-  console.log("IP: ", req.ip);
-  next();
-};
-
-server.use(restricted);
 
 // Server use GraphQL with /graphql endpoint
 server.use(

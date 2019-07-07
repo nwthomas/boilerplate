@@ -1,6 +1,7 @@
 const graphql = require("graphql");
 const User = require("../models/user.js");
 const Thing = require("../models/thing.js");
+const Roles = require("../models/role.js");
 
 const {
   GraphQLObjectType,
@@ -21,6 +22,14 @@ const ThingType = new GraphQLObjectType({
         return User.findById(parent.userid);
       }
     }
+  })
+});
+
+const RoleType = new GraphQLObjectType({
+  name: "Role",
+  fields: () => ({
+    id: { type: GraphQLID },
+    role: { type: GraphQLNonNull(GraphQLString) }
   })
 });
 
@@ -56,8 +65,7 @@ const RootQuery = new GraphQLObjectType({
       type: UserType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        const user = User.findById(args.id);
-        return user._doc;
+        return User.findById(args.id);
       }
     },
     users: {
@@ -77,6 +85,19 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(ThingType),
       resolve(parent, args) {
         return Thing.find();
+      }
+    },
+    role: {
+      type: RoleType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Roles.findById(args.id);
+      }
+    },
+    roles: {
+      type: new GraphQLList(RoleType),
+      resolve(parent, args) {
+        return Roles.find();
       }
     }
   }

@@ -9,7 +9,8 @@ This directory contains boilerplate for an Express and Postgres server built usi
   - Create a Postgres database somewhere like Heroku or use Docker locally to run an instance of it, and set a `DATABASE_URL` variable
   - Create a `PORT` variable with the port number you want to run your server on (defaults to `8000` if you don't set anything)
   - Create a JWT_SECRET variable for your JSON Web Token creation
-- Install all dependencies with `yarn install` or `npm install` including:
+- Install all dependencies with `yarn add` or `npm install` including:
+
   - `bcryptjs`
   - `cors`
   - `dotenv`
@@ -20,7 +21,11 @@ This directory contains boilerplate for an Express and Postgres server built usi
   - `morgan`
   - `pg`
   - `cross-env`
-  - `jest`
-  - `nodemon`
   - `supertest`
+
+- Install all dev dependencies with `yarn add <dependency> --dev` or `npm install <dependency> -D`:
+
+  - `nodemon`
+  - `jest`
+
 - Run `yarn start` or `npm start` to launch server

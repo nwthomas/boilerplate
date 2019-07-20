@@ -11,7 +11,7 @@ applyMiddleware(server);
 server.get('/playground', expressPlayground({ endpoint: '/graphql' })); // Use GraphQL Playground
 
 server.get('/', (req, res) => {
-  res.send('The Stampd Server is alive and well 🎉');
+  res.send('The Server is alive and well 🎉');
 });
 
 // Server use GraphQL with /graphql endpoint

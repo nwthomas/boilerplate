@@ -1,30 +1,20 @@
 {
-  "name": "backend",
+  "name": "express-graphql-postgresql",
   "version": "1.0.0",
-  "description": "The back-end server for the Labs 14 Stampd project",
+  "description": "A boilerplate server using Express, PostgreSQL, and GraphQL",
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
     "test": "jest --watch --verbose"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/labs14-stampd/backend.git"
-  },
   "keywords": [
-    "Stampd",
     "GraphQL",
     "PostgreSQL",
-    "Express",
-    "Blockchain"
+    "Express"
   ],
-  "author": "Nathan Thomas, Aljoe Bacus, Brannan Conrad, Megan Jeffcoat, CJ Tantay, Byron Holmes",
+  "author": "Nathan Thomas",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/labs14-stampd/backend/issues"
-  },
-  "homepage": "https://github.com/labs14-stampd/backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",

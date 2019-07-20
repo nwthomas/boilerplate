@@ -1,7 +1,7 @@
 exports.up = function(knex) {
-  return knex.schema.createTable('wallets', tbl => {
+  return knex.schema.createTable('things', tbl => {
     tbl.increments();
-    tbl.string('walletAddress', 256);
+    tbl.string('name', 256);
     tbl
       .integer('userId')
       .unsigned()
@@ -9,10 +9,10 @@ exports.up = function(knex) {
       .inTable('users')
       .onDelete('CASCADE')
       .notNull();
-    tbl.unique('walletAddress', 'uq_wallet_walletAddress');
+    tbl.unique('name', 'uq_wallet_name');
   });
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('wallets');
+  return knex.schema.dropTableIfExists('things');
 };

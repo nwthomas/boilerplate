@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 const User = require('../models/userModel.js');
-const Wallet = require('../models/walletModel.js');
+const Thing = require('../models/thingModel.js');
 
 const {
   GraphQLObjectType,
@@ -43,23 +43,23 @@ const UserType = new GraphQLObjectType({
     city: { type: GraphQLString, description: 'The city of the user' },
     state: { type: GraphQLString, description: 'The state of the user' },
     zip: { type: GraphQLString, description: 'The zip code of the user' },
-    wallets: {
-      type: new GraphQLList(WalletType),
-      description: 'The list of wallets belonging to the user',
+    things: {
+      type: new GraphQLList(ThingType),
+      description: 'The list of things belonging to the user',
       resolve(parent, args) {
-        return Wallet.findByUserId(parent.id);
+        return Thing.findByUserId(parent.id);
       }
     }
   })
 });
 
-const WalletType = new GraphQLObjectType({
-  name: 'Wallet',
+const ThingType = new GraphQLObjectType({
+  name: 'Thing',
   fields: () => ({
-    id: { type: GraphQLInt, desciption: 'The unique ID of the wallet' },
-    walletAddress: {
+    id: { type: GraphQLInt, desciption: 'The unique ID of the thing' },
+    name: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'The unique address of the wallet'
+      description: 'The name of the thing'
     },
     userId: {
       type: new GraphQLNonNull(GraphQLInt),
@@ -67,7 +67,7 @@ const WalletType = new GraphQLObjectType({
     },
     user: {
       type: UserType,
-      description: 'The user associated with the wallet',
+      description: 'The user associated with the thing',
       resolve(parent, args) {
         return User.findById(parent.userId);
       }
@@ -77,5 +77,5 @@ const WalletType = new GraphQLObjectType({
 
 module.exports = {
   UserType,
-  WalletType
+  ThingType
 };

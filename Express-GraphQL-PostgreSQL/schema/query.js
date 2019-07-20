@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const User = require('../models/userModel.js');
-const Wallet = require('../models/walletModel.js');
-const { UserType, WalletType } = require('./types.js');
+const Thing = require('../models/thingModel.js');
+const { UserType, ThingType } = require('./types.js');
 
 const { GraphQLObjectType, GraphQLList, GraphQLID } = graphql;
 
@@ -47,16 +47,16 @@ const RootQuery = new GraphQLObjectType({
         }
       }
     },
-    getAllWallets: {
-      type: new GraphQLList(WalletType),
-      description: 'Gets all wallets',
+    getAllThings: {
+      type: new GraphQLList(ThingType),
+      description: 'Gets all things',
       resolve(parent, args) {
-        return Wallet.find()
+        return Thing.find()
           .then(res => {
             if (res) {
               return res;
             } else {
-              return new Error('The users could not be found.');
+              return new Error('The things could not be found.');
             }
           })
           .catch(err => {
@@ -64,22 +64,20 @@ const RootQuery = new GraphQLObjectType({
           });
       }
     },
-    getWalletByWalletId: {
-      type: WalletType,
-      description: 'Gets a wallet by wallet ID',
+    getThingsByThingId: {
+      type: ThingType,
+      description: 'Gets a thing by thing ID',
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         if (!args.id) {
-          return new Error('Please include a wallet ID and try again.');
+          return new Error('Please include a thing ID and try again.');
         } else {
-          return Wallet.findById(args.id)
+          return Thing.findById(args.id)
             .then(res => {
               if (res) {
                 return res;
               } else {
-                return new Error(
-                  'No wallet with that wallet ID could be found.'
-                );
+                return new Error('No thing with that thing ID could be found.');
               }
             })
             .catch(err => {

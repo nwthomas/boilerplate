@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const User = require('../models/userModel.js');
-const Wallet = require('../models/walletModel.js');
-const { UserType, WalletType } = require('./types.js');
+const Thing = require('../models/thingModel.js');
+const { UserType, ThingType } = require('./types.js');
 
 const {
   GraphQLObjectType,
@@ -187,82 +187,6 @@ const Mutation = new GraphQLObjectType({
               return new Error('There was an error completing your request.');
             });
         }
-      }
-    },
-    addWallet: {
-      type: WalletType,
-      description: 'Adds a new wallet',
-      args: {
-        walletAddress: {
-          type: GraphQLNonNull(GraphQLString),
-          description: 'The unique address of the new wallet'
-        },
-        userId: {
-          type: GraphQLNonNull(GraphQLInt),
-          description: 'The foreign key of the associated user'
-        }
-      },
-      resolve(parent, args) {
-        const newWallet = { ...args };
-        return Wallet.insert(newWallet)
-          .then(res => {
-            if (res.rowCount) {
-              return Wallet.findByWalletAddress(args.walletAddress)
-                .then(res => {
-                  return res;
-                })
-                .catch(err => {
-                  return new Error(
-                    'There was an error completing your request.'
-                  );
-                });
-            } else {
-              return new Error('The wallet could not be created.');
-            }
-          })
-          .catch(err => {
-            return new Error('There was an error completing your request.');
-          });
-      }
-    },
-    updateWallet: {
-      type: WalletType,
-      description: 'Updates an existing wallet by wallet ID',
-      args: {
-        id: {
-          type: GraphQLNonNull(GraphQLID),
-          description: 'The unique ID of the wallet'
-        },
-        walletAddress: {
-          type: GraphQLString,
-          description: 'The unique address of the wallet'
-        },
-        userId: {
-          type: GraphQLInt,
-          description: 'The foreign key of the associated user'
-        }
-      },
-      resolve(parent, args) {
-        const walletChanges = { ...args };
-        return Wallet.update(args.id, walletChanges)
-          .then(res => {
-            if (res) {
-              return Wallet.findById(args.id)
-                .then(res => {
-                  return res;
-                })
-                .catch(err => {
-                  return new Error(
-                    'There was an error completing your request.'
-                  );
-                });
-            } else {
-              return new Error('The wallet could not be updated.');
-            }
-          })
-          .catch(err => {
-            return new Error('There was an error completing your request.');
-          });
       }
     }
   })

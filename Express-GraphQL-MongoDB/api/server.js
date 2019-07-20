@@ -31,6 +31,7 @@ server.use(
   "/graphql",
   graphqlHTTP({
     schema,
+    restricted,
     graphiql: false // Turns off graphiql for GraphQL Playground use
   })
 );

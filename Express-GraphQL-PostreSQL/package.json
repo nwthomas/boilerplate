@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "The back-end server for the Labs 14 Stampd project",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "test": "jest --watch --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/labs14-stampd/backend.git"
+  },
+  "keywords": [
+    "Stampd",
+    "GraphQL",
+    "PostgreSQL",
+    "Express",
+    "Blockchain"
+  ],
+  "author": "Nathan Thomas, Aljoe Bacus, Brannan Conrad, Megan Jeffcoat, CJ Tantay, Byron Holmes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/labs14-stampd/backend/issues"
+  },
+  "homepage": "https://github.com/labs14-stampd/backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "faker": "^4.1.0",
+    "graphql": "^14.4.2",
+    "graphql-playground-middleware-express": "^1.7.12",
+    "helmet": "^3.19.0",
+    "knex": "^0.19.0",
+    "knex-cleaner": "^1.2.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1"
+  }
+}

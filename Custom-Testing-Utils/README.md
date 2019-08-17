@@ -9,9 +9,10 @@ More recently, I have also implemented a custom mock function using the `uuid` n
 - Fork or clone repository
 - Use `yarn create react-app <name>` to create new application
 - Install dependencies including:
-  - `react-testing-library`
+  - `@testing-library/jest-dom`
+  - `@testing-library/react`
+  - `history`
   - `react-test-renderer`
-  - `jest-dom`
   - `react-router`
   - `react-router-dom`
   - `uuid`

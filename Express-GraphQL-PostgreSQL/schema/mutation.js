@@ -100,7 +100,7 @@ const Mutation = new GraphQLObjectType({
       description: 'Updates an existing user by user ID',
       args: {
         id: {
-          type: GraphQLNonNull(GraphQLID),
+          type: new GraphQLNonNull(GraphQLID),
           description: 'The unique ID of the user'
         },
         username: {
@@ -167,7 +167,7 @@ const Mutation = new GraphQLObjectType({
       description: 'Deletes an existing user by user ID',
       args: {
         id: {
-          type: GraphQLNonNull(GraphQLID),
+          type: new GraphQLNonNull(GraphQLID),
           description: 'The unique ID of the user'
         }
       },
@@ -187,6 +187,47 @@ const Mutation = new GraphQLObjectType({
               return new Error('There was an error completing your request.');
             });
         }
+      }
+    },
+    addThing: {
+      type: ThingType,
+      description: 'Adds a new thing',
+      args: {
+        name: {
+          type: new GraphQLNonNull(GraphQLString),
+          description: 'The unique name of the new thing'
+        },
+        userId: {
+          type: new GraphQLNonNull(GraphQLID),
+          description: 'The user Id associated with the thing'
+        }
+      },
+      resolve(parent, args) {
+        return Thing.insert({ ...args })
+          .then(res => {
+            if (res.rowCount) {
+              return User.findByUsername(args.username)
+                .then(res => {
+                  if (res) {
+                    return res;
+                  } else {
+                    return new Error(
+                      'There was an error returning the new user.'
+                    );
+                  }
+                })
+                .catch(err => {
+                  return new Error(
+                    'There was an error completing your request.'
+                  );
+                });
+            } else {
+              return new Error('The user could not be created.');
+            }
+          })
+          .catch(err => {
+            return new Error('There was an error completing your request.');
+          });
       }
     }
   })

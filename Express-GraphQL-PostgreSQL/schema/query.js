@@ -25,7 +25,7 @@ const RootQuery = new GraphQLObjectType({
           });
       }
     },
-    getUserById: {
+    getUserByUserId: {
       type: UserType,
       description: 'Gets a user by user ID',
       args: { id: { type: GraphQLID } },
@@ -86,28 +86,6 @@ const RootQuery = new GraphQLObjectType({
         }
       }
     }
-    // getAllWalletsByUserId: {
-    //   type: WalletType,
-    //   description: "Gets all wallets by user ID",
-    //   args: { userId: { type: GraphQLID } },
-    //   resolve(parent, args) {
-    //     if (!args.userId) {
-    //       return new Error("Please include a wallet ID and try again.");
-    //     } else {
-    //       return Wallet.findByUserId(args.userId)
-    //         .then(res => {
-    //           if (res.length) {
-    //             return res;
-    //           } else {
-    //             return new Error("No wallets for that user ID could be found.");
-    //           }
-    //         })
-    //         .catch(err => {
-    //           return new Error("There was an error completing your request.");
-    //         });
-    //     }
-    //   }
-    // }
   }
 });
 

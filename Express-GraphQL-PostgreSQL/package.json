@@ -6,7 +6,11 @@
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
-    "test": "jest --watch --verbose"
+    "test": "jest --watch --verbose",
+    "rollback": "npx knex migrate:rollback",
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run",
+    "redo": "yarn rollback && yarn migrate && yarn seed"
   },
   "keywords": [
     "GraphQL",

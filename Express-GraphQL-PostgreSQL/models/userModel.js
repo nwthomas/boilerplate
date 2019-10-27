@@ -16,14 +16,17 @@ function findByUsername(username) {
     .first();
 }
 
-function insert(creds) {
-  return db('users').insert(creds);
+async function insert(creds) {
+  const { username } = creds;
+  const result = await db('users').insert(creds);
+  return await findByUsername(username);
 }
 
-function update(id, changes) {
-  return db('users')
+async function update(id, changes) {
+  const result = await db('users')
     .where({ id })
     .update(changes);
+  return await findById(id);
 }
 
 function remove(id) {

@@ -69,8 +69,8 @@ const Mutation = new GraphQLObjectType({
         try {
           const newUser = { ...args };
           return await User.insert(newUser);
-        } catch (error) {
-          return new Error(error);
+        } catch {
+          return new Error('There was an error completing your request.');
         }
       }
     },
@@ -118,27 +118,16 @@ const Mutation = new GraphQLObjectType({
         state: { type: GraphQLString, description: 'The state of the user' },
         zip: { type: GraphQLString, description: 'The zip code of the user' }
       },
-      resolve(parent, args) {
-        const userChanges = { ...args };
-        return User.update(args.id, userChanges)
-          .then(res => {
-            if (res) {
-              return User.findById(args.id)
-                .then(res => {
-                  return res;
-                })
-                .catch(err => {
-                  return new Error(
-                    'There was an error completing your request.'
-                  );
-                });
-            } else {
-              return new Error('The user could not be updated.');
-            }
-          })
-          .catch(err => {
-            return new Error('There was an error completing your request.');
-          });
+      async resolve(parent, args) {
+        if (!args.id) {
+          return new Error('Please include the user id and try again.');
+        }
+        try {
+          const userChanges = { ...args };
+          return User.update(userChanges.id, userChanges);
+        } catch {
+          return new Error('There was an error completing your request.');
+        }
       }
     },
     deleteUser: {

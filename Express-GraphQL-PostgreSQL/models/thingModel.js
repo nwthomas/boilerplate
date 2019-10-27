@@ -7,8 +7,7 @@ function find() {
 function findByThingId(id) {
   return db('things')
     .where({ id })
-    .first()
-    .then(ids => ids);
+    .first();
 }
 
 function findByUserId(userId) {
@@ -16,8 +15,8 @@ function findByUserId(userId) {
 }
 
 async function insert(thing) {
-  const mutation = await db('things').insert(thing);
-  return findByThingId(userId);
+  const result = await db('things').insert(thing);
+  return thing;
 }
 
 async function update(id, changes) {

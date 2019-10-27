@@ -29,10 +29,11 @@ async function update(id, changes) {
   return await findById(id);
 }
 
-function remove(id) {
-  return db('users')
+async function remove(id) {
+  const result = await db('users')
     .where({ id })
     .del();
+  return id;
 }
 
 module.exports = {

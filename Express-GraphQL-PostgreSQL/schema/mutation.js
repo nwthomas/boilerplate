@@ -139,21 +139,15 @@ const Mutation = new GraphQLObjectType({
           description: 'The unique ID of the user'
         }
       },
-      resolve(parent, args) {
+      async resolve(parent, args) {
         if (!args.id) {
           return new Error('Please include a user ID and try again.');
-        } else {
-          return User.remove(args.id)
-            .then(res => {
-              if (res) {
-                return { id: args.id };
-              } else {
-                return new Error('The user could not be deleted.');
-              }
-            })
-            .catch(err => {
-              return new Error('There was an error completing your request.');
-            });
+        }
+        try {
+          const id = await User.remove(args.id);
+          return { id };
+        } catch {
+          return new Error('There was an error completing your request.');
         }
       }
     },
@@ -170,32 +164,15 @@ const Mutation = new GraphQLObjectType({
           description: 'The user Id associated with the thing'
         }
       },
-      resolve(parent, args) {
-        return Thing.insert({ ...args })
-          .then(res => {
-            if (res.rowCount) {
-              return User.findByUsername(args.username)
-                .then(res => {
-                  if (res) {
-                    return res;
-                  } else {
-                    return new Error(
-                      'There was an error returning the new user.'
-                    );
-                  }
-                })
-                .catch(err => {
-                  return new Error(
-                    'There was an error completing your request.'
-                  );
-                });
-            } else {
-              return new Error('The user could not be created.');
-            }
-          })
-          .catch(err => {
-            return new Error('There was an error completing your request.');
-          });
+      async resolve(parent, args) {
+        if (!args.name || !args.userId) {
+          return new Error('Please include a name and userId and try again.');
+        }
+        try {
+          return Thing.insert({ ...args });
+        } catch {
+          return new Error('The user could not be created.');
+        }
       }
     }
   })

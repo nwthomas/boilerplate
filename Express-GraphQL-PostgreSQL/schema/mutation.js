@@ -60,38 +60,17 @@ const Mutation = new GraphQLObjectType({
           description: 'The zip code of the new user'
         }
       },
-      resolve(parent, args) {
+      async resolve(parent, args) {
         if (!args.username || !args.email) {
           return new Error(
             'Please include the required credentials and try again.'
           );
-        } else {
+        }
+        try {
           const newUser = { ...args };
-          return User.insert(newUser)
-            .then(res => {
-              if (res.rowCount) {
-                return User.findByUsername(args.username)
-                  .then(res => {
-                    if (res) {
-                      return res;
-                    } else {
-                      return new Error(
-                        'There was an error returning the new user.'
-                      );
-                    }
-                  })
-                  .catch(err => {
-                    return new Error(
-                      'There was an error completing your request.'
-                    );
-                  });
-              } else {
-                return new Error('The user could not be created.');
-              }
-            })
-            .catch(err => {
-              return new Error('There was an error completing your request.');
-            });
+          return await User.insert(newUser);
+        } catch (error) {
+          return new Error(error);
         }
       }
     },

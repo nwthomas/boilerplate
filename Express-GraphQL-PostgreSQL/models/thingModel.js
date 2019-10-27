@@ -15,14 +15,16 @@ function findByUserId(userId) {
   return db('things').where({ userId });
 }
 
-function insert(thing) {
-  return db('things').insert(thing);
+async function insert(thing) {
+  const mutation = await db('things').insert(thing);
+  return findByThingId(userId);
 }
 
-function update(id, changes) {
-  return db('things')
+async function update(id, changes) {
+  await db('things')
     .where({ id })
     .update(changes);
+  return findByUserId(id);
 }
 
 function remove(id) {

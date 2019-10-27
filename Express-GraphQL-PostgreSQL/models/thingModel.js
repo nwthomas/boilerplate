@@ -23,13 +23,14 @@ async function update(id, changes) {
   await db('things')
     .where({ id })
     .update(changes);
-  return findByUserId(id);
+  return findByThingId(id);
 }
 
-function remove(id) {
-  return db('things')
+async function remove(id) {
+  const result = await db('things')
     .where({ id })
     .del();
+  return id;
 }
 
 module.exports = {

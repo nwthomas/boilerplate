@@ -67,8 +67,8 @@ const Mutation = new GraphQLObjectType({
           );
         }
         try {
-          const newUser = { ...args };
-          return await User.insert(newUser);
+          const result = await User.insert(args);
+          return result;
         } catch {
           return new Error('There was an error completing your request.');
         }
@@ -123,10 +123,10 @@ const Mutation = new GraphQLObjectType({
           return new Error('Please include the user id and try again.');
         }
         try {
-          const userChanges = { ...args };
-          return User.update(userChanges.id, userChanges);
+          const result = await User.update(args.id, args);
+          return result;
         } catch {
-          return new Error('There was an error completing your request.');
+          return new Error('There was an error completing your request');
         }
       }
     },
@@ -141,13 +141,13 @@ const Mutation = new GraphQLObjectType({
       },
       async resolve(parent, args) {
         if (!args.id) {
-          return new Error('Please include a user ID and try again.');
+          return new Error('Please include a user ID and try again');
         }
         try {
           const id = await User.remove(args.id);
           return { id };
         } catch {
-          return new Error('There was an error completing your request.');
+          return new Error('There was an error completing your request');
         }
       }
     },
@@ -161,17 +161,68 @@ const Mutation = new GraphQLObjectType({
         },
         userId: {
           type: new GraphQLNonNull(GraphQLID),
-          description: 'The user Id associated with the thing'
+          description: 'The user ID associated with the thing'
         }
       },
       async resolve(parent, args) {
         if (!args.name || !args.userId) {
-          return new Error('Please include a name and userId and try again.');
+          return new Error('Please include a name and userId and try again');
         }
         try {
-          return Thing.insert({ ...args });
+          const result = await Thing.insert({ ...args });
+          return result;
         } catch {
-          return new Error('The user could not be created.');
+          return new Error('There was an error completing your request');
+        }
+      }
+    },
+    updateThing: {
+      type: ThingType,
+      description: 'Updates an existing thing by thing ID',
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID),
+          description: 'The unique ID of the thing'
+        },
+        name: {
+          type: GraphQLString,
+          description: 'The unique name of the thing'
+        },
+        userId: {
+          type: GraphQLID,
+          description: 'The user ID associated with the thing'
+        }
+      },
+      async resolve(parent, args) {
+        if (!args.id) {
+          return new Error('Please include the thing ID and try again');
+        }
+        try {
+          const result = await Thing.update(args.id, args);
+          return result;
+        } catch {
+          return new Error('There was an error completing your request');
+        }
+      }
+    },
+    deleteThing: {
+      type: ThingType,
+      description: 'Deletes an existing thing by thing ID',
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID),
+          description: 'The unique ID of the thing'
+        }
+      },
+      async resolve(parent, args) {
+        if (!args.id) {
+          return new Error('Please include the thing ID and try again');
+        }
+        try {
+          const id = await Thing.remove(args.id);
+          return { id };
+        } catch {
+          return new Error('There was an error completing your request');
         }
       }
     }

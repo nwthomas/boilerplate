@@ -3,7 +3,7 @@ const User = require('../models/userModel.js');
 const Thing = require('../models/thingModel.js');
 const { UserType, ThingType } = require('./types.js');
 
-const { GraphQLObjectType, GraphQLList, GraphQLID } = graphql;
+const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql;
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -28,7 +28,7 @@ const RootQuery = new GraphQLObjectType({
     getUserByUserId: {
       type: UserType,
       description: 'Gets a user by user ID',
-      args: { id: { type: GraphQLID } },
+      args: { id: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(parent, args) {
         if (!args.id) {
           return new Error('Please include a user ID and try again.');
@@ -67,7 +67,7 @@ const RootQuery = new GraphQLObjectType({
     getThingsByThingId: {
       type: ThingType,
       description: 'Gets a thing by thing ID',
-      args: { id: { type: GraphQLID } },
+      args: { id: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(parent, args) {
         if (!args.id) {
           return new Error('Please include a thing ID and try again.');
@@ -83,6 +83,26 @@ const RootQuery = new GraphQLObjectType({
             .catch(err => {
               return new Error('There was an error completing your request.');
             });
+        }
+      }
+    },
+    getThingsByUserId: {
+      type: new GraphQLList(ThingType),
+      description: 'Gets all things associated with a given user ID',
+      args: {
+        userId: {
+          type: new GraphQLNonNull(GraphQLID),
+          description: 'The ID of the user associated with the things'
+        }
+      },
+      async resolve(parent, args) {
+        if (!args.userId) {
+          return new Error('Please include a user ID and try again.');
+        }
+        try {
+          return Thing.findByUserId(args.userId);
+        } catch {
+          return new Error('There was an error completing your request.');
         }
       }
     }

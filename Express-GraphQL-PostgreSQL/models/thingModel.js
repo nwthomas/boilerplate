@@ -10,8 +10,9 @@ function findByThingId(id) {
     .first();
 }
 
-function findByUserId(userId) {
-  return db('things').where({ userId });
+async function findByUserId(userId) {
+  const result = await db('things').where({ userId });
+  return result;
 }
 
 async function insert(thing) {

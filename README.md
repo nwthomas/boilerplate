@@ -6,18 +6,12 @@ This repository contains boilerplate for front-end, back-end, state management, 
 
 ## TABLE OF CONTENTS
 
-| Use Case    | Type             | Status     | Packages                           | Link                                       |
-| ----------- | ---------------- | ---------- | ---------------------------------- | ------------------------------------------ |
-| `front-end` | State Management | Complete   | React, Redux, React Router         | [Click Here](./React-Redux)                |
-| `front-end` | State Management | Complete   | React Hooks, Context, React Router | [Click Here](./React-Hooks-Context)        |
-| `front-end` | Mobile Framework | Incomplete | React Native, React Native Router  |                                            |
-| `front-end` | Assorted         | Complete   | React Custom Hooks                 | [Click Here](./React-Custom-Hooks)         |
-| `both`      | Testing          | Complete   | React Testing Library/UUID         | [Click Here](./Custom-Testing-Utils)       |
-| `back-end`  | Server Framework | Complete   | Express, REST, Postgres            | [Click Here](./Express-REST-Postgres)      |
-| `back-end`  | Server Framework | Incomplete | Express, GraphQL, MongoDB          |                                            |
-| `back-end`  | Server Framework | Complete   | Express, GraphQL, Postgres         | [Click Here](./Express-GraphQL-PostgreSQL) |
-| `back-end`  | Server Framework | Incomplete | Spring, REST, Postgres (Java)      |                                            |
-| `both`      | Assorted         | Complete   | General Utility Functions          | [Click here](./General-Utility-Functions)  |
+| Use Case   | Type             | Status     | Packages                   | Link                                       |
+| ---------- | ---------------- | ---------- | -------------------------- | ------------------------------------------ |
+| `both`     | Testing          | Complete   | React Testing Library/UUID | [Click Here](./Custom-Testing-Utils)       |
+| `back-end` | Server Framework | Complete   | Express, REST, Postgres    | [Click Here](./Express-REST-Postgres)      |
+| `back-end` | Server Framework | Incomplete | Express, GraphQL, MongoDB  |                                            |
+| `back-end` | Server Framework | Complete   | Express, GraphQL, Postgres | [Click Here](./Express-GraphQL-PostgreSQL) |
 
 ## NOTES
 

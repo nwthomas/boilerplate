@@ -28,7 +28,7 @@
     "graphql": "^14.4.2",
     "graphql-playground-middleware-express": "^1.7.12",
     "helmet": "^3.19.0",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "knex-cleaner": "^1.2.1",
     "morgan": "^1.9.1",
     "pg": "^7.11.0"

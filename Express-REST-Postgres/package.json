@@ -25,7 +25,7 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "helmet": "^3.18.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^0.19.5",
     "knex-cleaner": "^1.1.4",
     "morgan": "^1.9.1",
